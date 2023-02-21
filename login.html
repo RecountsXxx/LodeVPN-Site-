@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - youtube.com/codingnepal -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Lode VPN | Login</title>
+    <link rel="stylesheet" href="Styles/styleLogin.css">
+    <link rel="stylesheet" href="fontawesome-free/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:600&display=swap" rel="stylesheet">
+  	<link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+  	<link rel="apple-touch-icon" sizes="180x180" href="Icons/apple-touch-icon.png">
+  	<link rel="icon" type="image/png" sizes="32x32" href="Icons/favicon-32x32.png">
+  	<link rel="icon" type="image/png" sizes="16x16" href="Icons/favicon-16x16.png">
+  	<link rel="manifest" href="/site.webmanifest">
+  	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  	<meta name="msapplication-TileColor" content="#da532c">
+  	<meta name="theme-color" content="#ffffff">
+    <script src="Scripts/loginScript.js"></script>
+  </head>
+  <body>
+    <header>
+
+  		<div class="navigation">
+  			<div class="logo">Lode VPN</div>
+  			<div class="menu">
+          <ul class="nav">
+            <li><a class="link" href="index.html">Home</a></li>
+            <li><a class="link" href="downloads.html">Downloads</a></li>
+            <li><a class="link" href="subsribe.html">Subscriptions</a></li>
+            <li><a class="link" href="login.html">Login</a></li>
+          </ul>
+  			</div>
+  		</div>
+  	</header>
+
+
+
+    <div class="center">
+      <h1>Login</h1>
+        <div class="txt_field">
+          <input id="emailInput" name="emailInput" type="text"  required>
+          <span></span>
+          <label>Login</label>
+        </div>
+        <div class="txt_field">
+          <input id="passwordInput" name="passwordInput" type="password"   required>
+          <span></span>
+          <label>Password</label>
+        </div>
+        <h4 id="errorH4Text"></h4>
+        <div class="pass"><a href="forgotPassword.html"> Forgot password?</a></div>
+        <input id="sumbitLogin" type="submit" name="submitLogin" value="Login">
+        <div class="signup_link">
+          Not a member? <a href="register.html">Sign up</a>
+        </div>
+    </div>
+  </body>
+
+  
+
+
+  <script type="module">
+    import { getAuth, createUserWithEmailAndPassword,onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-analytics.js";
+    import {getDatabase,set,ref,get,child,onValue} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+  const firebaseConfig = {
+    apiKey: "AIzaSyCji-4mdEj7Nj6jotaEuulLIJb7YKIHRZY",
+    authDomain: "vpnusersdb.firebaseapp.com",
+    databaseURL: "https://vpnusersdb-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "vpnusersdb",
+    storageBucket: "vpnusersdb.appspot.com",
+    messagingSenderId: "306185031673",
+    appId: "1:306185031673:web:b95518e42b1cee8b24b728",
+    measurementId: "G-ZC3F8V757H"
+  };
+
+   class User
+    {
+      constructor(Name,Gmail,Password,Created,IsPremium,DaysForFreePlan,DaysBuySubcribe,DayBuySubcribe){
+        this.Name = Name;
+          this.Gmail = Gmail;
+          this.Password = Password;
+          this.IsPremium = IsPremium;
+          this.DayBuySubcribe = DayBuySubcribe;
+          this.Created = Created;
+          this.DaysForFreePlan = DaysForFreePlan;
+          this.DaysBuySubcribe = DaysBuySubcribe;
+      }
+   
+    }
+
+
+
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const database = getDatabase(app);
+  const auth = getAuth();
+
+  sumbitLogin.addEventListener('click',(e)=>{
+    var email = document.getElementById('emailInput').value;
+  var password = document.getElementById('passwordInput').value;
+  var obj =  document.getElementById('errorH4Text');
+  if(email != '' && password != ''){
+    const dbRef = ref(getDatabase());
+  get(child(dbRef, `vpnusersdb/${email}`)).then((snapshot) => {
+    if (snapshot.exists()) {
+    obj.style.display = "Block";
+   obj.style.color = "LightGreen";
+   obj.innerHTML = "Great!";
+let user = new User(snapshot.val().Name,snapshot.val().Gmail,snapshot.val().Password,snapshot.val().Created,snapshot.val().IsPremium, snapshot.val().DaysForFreePlan,snapshot.val().DaysBuySubcribe,snapshot.val().DayBuySubcribe);
+
+   localStorage.infos=user.Name;
+localStorage["infos"]=user.Name;
+localStorage.setItem("infos",user.Name);
+   window.location.href = 'account.html';
+    }
+    else{
+      obj.style.display = "Block";
+   obj.style.color = "Red";
+   obj.innerHTML = "Invalid login or password!";
+    }
+  });
+  }
+  else{
+    obj.style.display = "Block";
+   obj.style.color = "Red";
+   obj.innerHTML = "Fill in all the fields";
+  }
+
+ 
+    
+  })
+  </script>
+</html>
